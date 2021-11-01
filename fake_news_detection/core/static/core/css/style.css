@@ -1,0 +1,8 @@
+.bg {
+  background-image: url("https://source.unsplash.com/1600x900/?news");
+  height: 100%;
+  background-color: rgb(4, 184, 255);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -1,0 +1,28 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="container py-5">
+    <div class="container-fluid">
+        {% if messages %}
+        {% for message in messages %}
+        <div {% if message.tags %} class="alert alert-warning alert-dismissible fade show" {% endif %} role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="alert alert-primary h1 text-center shadow-lg my-5" role="alert">Fake News 📰 Analysis</div>
+    <form action="{% url 'predict' %}" method="POST" class="pb-5">
+        {% csrf_token %}
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Enetr your news" name="news" id="floatingTextarea2"
+                style="height: 200px"></textarea>
+            <label for="floatingTextarea2">Enter News</label>
+            <div class="d-grid gap-2 py-4">
+				<button type="reset" class="btn btn-warning btn-lg shadow-lg">Clear</button>
+                <button type="submit" class="btn btn-success btn-lg shadow-lg">Predict</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}

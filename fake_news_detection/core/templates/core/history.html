@@ -1,0 +1,28 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="container py-5">
+    <div class="alert alert-warning h1 text-center shadow-lg my-5" role="alert">Your Previous Searches</div>
+    {% if searhes %}
+    <table class="table table-striped table-condensed table-bordered rounded bg-dark my-2">
+        <tr class="text-light">
+            <th>S.No</th>
+            <th class="text-center">News</th>
+            <th class="text-center">Prediction</th>
+        </tr>
+        {% for rec in searhes %}
+        <tr class="text-light">
+            <th class="active">{{forloop.counter}}</th>
+            <td class="active">{{rec.news}}</td>
+            <td class="active">{{rec.prediction}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <div class="border rounded my-2 bg-dark text-center">
+            <h2 class="p-5 text-light">No record found</>
+        </div>
+    {% endif %}
+    <div class="my-5 py-5"></div>
+    <div class="py-5"></div>
+</div>
+{% endblock content %}

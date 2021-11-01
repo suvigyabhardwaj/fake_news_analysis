@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">📰 Fake News Analysis</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {{home_active}} {{home_disabled}}" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                {% if prediction %}
+                <li class="nav-item">
+                    <a class="nav-link active disabled">Prediction <span class="sr-only">(current)</span></a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link {{real_active}} {{real_disabled}}" href="{% url 'real' %}">Top 10 Real News <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{fake_active}} {{fake_disabled}}" href="{% url 'fake' %}">Top 10 Fake News <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'code' %}">See ML Code <span class="sr-only">(current)</span></a>
+                </li>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link {{history_active}} {{history_disabled}}" href="{% url 'history' %}">History</a>
+                </li>
+                {% if perms.product.add_user %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">Admin Panel</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link {{signup_disabled}} {{signup_active}}" href="{% url 'signup' %}">Signup</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{login_disabled}} {{login_active}}" href="{% url 'login' %}">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

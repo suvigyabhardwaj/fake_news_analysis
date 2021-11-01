@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="container py-5">
+    {% if prediction == 'REAL' %}
+        <div class="alert alert-warning h1 text-center shadow-lg my-5" role="alert">Looking Real News 📰</div>
+    {% elif prediction == 'FAKE' %}
+        <div class="alert alert-danger h1 text-center shadow-lg my-5" role="alert">Looking Spam⚠️News 📰</div>
+    {% endif %}
+    <div class="py-5 border rounded shadow-lg bg-dark">
+        <div class="p-5 h3 text-light">{{news}}</div>
+    </div>
+    <div class="pb-2"></div>
+    <div class="py-5"></div>
+</div>
+{% endblock content %}
