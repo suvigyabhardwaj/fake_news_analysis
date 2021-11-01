@@ -1,0 +1,5 @@
+scikit-learn
+waitress==2.0.0
+whitenoise==5.2.0
+pandas
+Django

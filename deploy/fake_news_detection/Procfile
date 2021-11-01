@@ -1,0 +1,1 @@
+web: waitress-serve --port=$PORT fake_news_detection.wsgi:application

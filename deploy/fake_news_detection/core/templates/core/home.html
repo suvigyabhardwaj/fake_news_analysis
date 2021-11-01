@@ -11,7 +11,9 @@
         {% endfor %}
         {% endif %}
     </div>
-    <div class="alert alert-primary h1 text-center shadow-lg my-5" role="alert">Fake News 📰 Analysis</div>
+    <div class="alert alert-primary h1 text-center shadow-lg my-5" role="alert">Fake News 📰 Analysis
+        
+    </div>
     <form action="{% url 'predict' %}" method="POST" class="pb-5">
         {% csrf_token %}
         <div class="form-floating">
